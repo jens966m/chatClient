@@ -1,0 +1,18 @@
+﻿<Window x:Class="ChatGui.ChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatGui"
+        mc:Ignorable="d"
+        Title="ChatWindow" Height="300" Width="300" Background ="DarkGray">
+    <Grid>
+        <TextBox x:Name="writingBox" HorizontalAlignment="Left" Height="65" Margin="10,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="217"/>
+        <Button x:Name="sendButton" Content="Send" HorizontalAlignment="Left" Margin="236,241,0,0" VerticalAlignment="Top" Width="48" Click="sendButton_Click"/>
+        <Button x:Name="backButton" Content="Tilbage" HorizontalAlignment="Left" Margin="236,10,0,0" VerticalAlignment="Top" Width="48" Click="backButton_Click"/>
+
+
+        <TextBox x:Name="showTextBox" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="169" Margin="10,10,0,0" VerticalAlignment="Top" Width="217"/>
+
+    </Grid>
+</Window>
