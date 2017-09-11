@@ -43,7 +43,7 @@ namespace ChatGui
                 Dispatcher.Invoke(new ServerFacade.ThreadEventType(guiThread_MessageReceive), message);
                 return;
             }
-            string[] messagearray = message.Split(' ');
+            string[] messagearray = message.Split(',');
             if (messagearray[0] == "bet")
             {
                 LastPriceL.Content = messagearray[2];
@@ -62,6 +62,10 @@ namespace ChatGui
             {
                 showTextBox.AppendText(messagearray[1] + " " + messagearray[2] + "\r\n");
             }
+            else if (messagearray[0] == "Gavel")
+            {
+                showTextBox.AppendText(messagearray[1] + "\r\n");
+            }
 
         }
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -76,10 +80,12 @@ namespace ChatGui
         private void bidButton_Click(object sender, RoutedEventArgs e)
         {
             string message;
-            message = "bet " + chatName + " " + bidBox.Text;
+            message = "bet," + chatName + "," + bidBox.Text;
 
 
             serverFacade.SendToServer(message);
+            showTextBox.SelectionStart = showTextBox.Text.Length;
+            showTextBox.ScrollToEnd();
         }
     }
 }

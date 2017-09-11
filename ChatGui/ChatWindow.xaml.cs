@@ -45,7 +45,7 @@ namespace ChatGui
                 Dispatcher.Invoke(new ServerFacade.ThreadEventType(guiThread_MessageReceive), message);
                 return;
             }
-            string[] messagearray = message.Split(' ');
+            string[] messagearray = message.Split(',');
             string newMessage = "";
             if (messagearray[0] == "chat") {
                 for (int i = 1; i < messagearray.Length; i++) { newMessage += messagearray[i] + " "; }
@@ -56,7 +56,7 @@ namespace ChatGui
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
             string message;
-            message = "chat " + writingBox.Text;
+            message = "chat," + writingBox.Text;
             
 
             serverFacade.SendToServer(message);
