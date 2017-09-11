@@ -49,6 +49,18 @@ namespace ChatGui
                 LastPriceL.Content = messagearray[2];
                 HigestBetterL.Content = messagearray[1];
             }
+            else if (messagearray[0] == "StartUp")
+            {
+                LastPriceL.Content = messagearray[3];
+                HigestBetterL.Content = messagearray[2];
+                actualThingLabel.Content = messagearray[1];
+                StartPriceL.Content = messagearray[4];
+
+            }
+            else if (messagearray[0] == "Error")
+            {
+
+            }
 
         }
         private void backButton_Click(object sender, RoutedEventArgs e)
