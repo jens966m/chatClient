@@ -48,7 +48,7 @@ namespace ChatGui
             {
                 LastPriceL.Content = messagearray[2];
                 HigestBetterL.Content = messagearray[1];
-                showTextBox.AppendText(messagearray[1] + " bød " + messagearray[2]);
+                showTextBox.AppendText(messagearray[1] + " bød " + messagearray[2] + "/r/n");
             }
             else if (messagearray[0] == "StartUp")
             {
@@ -60,7 +60,7 @@ namespace ChatGui
             }
             else if (messagearray[0] == "Error")
             {
-                showTextBox.AppendText(messagearray[1] + messagearray[2]);
+                showTextBox.AppendText(messagearray[1] + " " + messagearray[2] + "/r/n");
             }
 
         }
