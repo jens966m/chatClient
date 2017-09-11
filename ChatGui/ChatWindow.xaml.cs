@@ -45,13 +45,18 @@ namespace ChatGui
                 Dispatcher.Invoke(new ServerFacade.ThreadEventType(guiThread_MessageReceive), message);
                 return;
             }
-            showTextBox.AppendText(message + "\r\n");
+            string[] messagearray = message.Split(' ');
+            string newMessage = "";
+            if (messagearray[0] == "chat") {
+                for (int i = 1; i < messagearray.Length; i++) { newMessage += messagearray[i] + " "; }
+                showTextBox.AppendText(newMessage + "\r\n");
+            }
 
         }
         private void sendButton_Click(object sender, RoutedEventArgs e)
         {
             string message;
-            message = writingBox.Text;
+            message = "chat " + writingBox.Text;
             
 
             serverFacade.SendToServer(message);
@@ -63,6 +68,7 @@ namespace ChatGui
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            serverFacade.threadEvent -= guiThread_MessageReceive;
             NavigationScreen navScreen = new NavigationScreen(serverFacade);
             navScreen.Show();
              

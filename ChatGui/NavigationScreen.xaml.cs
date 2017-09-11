@@ -40,7 +40,7 @@ namespace ChatGui
 
         private void chatButton_Click(object sender, RoutedEventArgs e)
         {
-            chatName =chatNameBox.Text;
+            chatName = chatNameBox.Text;
             this.Hide();
             ChatWindow chatWindow = new ChatWindow(serverFacade,chatName);
             chatWindow.Show();
@@ -49,7 +49,7 @@ namespace ChatGui
         private void auktionButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            AuktionWindow auktionWindow = new AuktionWindow(serverFacade);
+            AuktionWindow auktionWindow = new AuktionWindow(serverFacade,chatNameBox.Text);
             auktionWindow.Show();
 
         }
