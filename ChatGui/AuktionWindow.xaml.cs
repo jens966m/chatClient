@@ -60,11 +60,13 @@ namespace ChatGui
             }
             else if (messagearray[0] == "Error")
             {
-                showTextBox.AppendText(messagearray[1] + " " + messagearray[2] + "\r\n");
+                showTextBox.AppendText(messagearray[1] + "\r\n");
             }
             else if (messagearray[0] == "Gavel")
             {
                 showTextBox.AppendText(messagearray[1] + "\r\n");
+                showTextBox.SelectionStart = showTextBox.Text.Length;
+                showTextBox.ScrollToEnd();
             }
 
         }
